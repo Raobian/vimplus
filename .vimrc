@@ -128,7 +128,7 @@ Plug 'chxuan/vim-edit'
 Plug 'chxuan/change-colorscheme'
 Plug 'chxuan/prepare-code'
 Plug 'chxuan/vim-buffer'
-Plug 'chxuan/vimplus-startify'
+Plug 'Raobian/vimplus-startify'
 Plug 'preservim/tagbar'
 Plug 'Valloric/YouCompleteMe'
 Plug 'Yggdroot/LeaderF'
@@ -160,6 +160,9 @@ Plug 'Shougo/echodoc.vim'
 Plug 'terryma/vim-smooth-scroll'
 Plug 'rhysd/clever-f.vim'
 Plug 'vim-scripts/indentpython.vim'
+
+Plug 'preservim/nerdcommenter'
+Plug 'voldikss/vim-floaterm'
 
 " 加载自定义插件
 if filereadable(expand($HOME . '/.vimrc.custom.plugins'))
@@ -199,6 +202,8 @@ nnoremap <c-l> <c-w>l
 " 复制当前选中到系统剪切板
 vmap <leader><leader>y "+y
 
+nnoremap <leader>t :FloatermNew<CR>
+
 " 将系统剪切板内容粘贴到vim
 nnoremap <leader><leader>p "+p
 
@@ -232,6 +237,9 @@ nnoremap <leader><leader>if :FormatIf<cr>
 nnoremap <leader><leader>t dd :GenTryCatch<cr>
 xnoremap <leader><leader>t d :GenTryCatch<cr>
 
+map <F7> :!ctags -R --c++-kinds=+p --fields=+iaS --extra=+q .<CR>
+map <F8> :!cscope -Rbq<CR>
+
 " change-colorscheme
 nnoremap <silent> <F9> :PreviousColorScheme<cr>
 inoremap <silent> <F9> <esc> :PreviousColorScheme<cr>
@@ -258,7 +266,8 @@ nnoremap C :ChangeText<cr>
 nnoremap <leader>r :ReplaceTo<space>
 
 " nerdtree
-nnoremap <silent> <leader>n :NERDTreeToggle<cr>
+" nnoremap <silent> <leader>n :NERDTreeToggle<cr>
+nnoremap <silent> <F2> :NERDTreeToggle<cr>
 let g:NERDTreeFileExtensionHighlightFullName = 1
 let g:NERDTreeExactMatchHighlightFullName = 1
 let g:NERDTreePatternMatchHighlightFullName = 1
@@ -299,7 +308,8 @@ nmap <F5> :YcmDiags<cr>
 
 " tagbar
 let g:tagbar_width = 30
-nnoremap <silent> <leader>t :TagbarToggle<cr>
+" nnoremap <silent> <leader>t :TagbarToggle<cr>
+nnoremap <silent> <F3> :TagbarToggle<cr>
 
 " incsearch.vim
 map /  <Plug>(incsearch-forward)

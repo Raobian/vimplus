@@ -39,6 +39,8 @@ set cursorline           " 高亮显示当前行
 set whichwrap+=<,>,h,l   " 设置光标键跨行
 set ttimeoutlen=0        " 设置<ESC>键响应时间
 set virtualedit=block,onemore   " 允许光标出现在最后一个字符的后面
+set mouse=a
+set selectmode=mouse,key
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " 代码缩进和排版
@@ -163,6 +165,8 @@ Plug 'vim-scripts/indentpython.vim'
 
 Plug 'preservim/nerdcommenter'
 Plug 'voldikss/vim-floaterm'
+Plug 'luochen1990/rainbow'
+Plug 'yegappan/taglist'
 
 " 加载自定义插件
 if filereadable(expand($HOME . '/.vimrc.custom.plugins'))
@@ -261,7 +265,7 @@ nnoremap <silent> <leader>D :BufOnly<cr>
 
 " vim-edit
 nnoremap Y :CopyText<cr>
-nnoremap D :DeleteText<cr>
+nnoremap X :DeleteText<cr>
 nnoremap C :ChangeText<cr>
 nnoremap <leader>r :ReplaceTo<space>
 
@@ -308,8 +312,17 @@ nmap <F5> :YcmDiags<cr>
 
 " tagbar
 let g:tagbar_width = 30
+let g:tagbar_left = 1
+let g:tagbar_sort = 0
 " nnoremap <silent> <leader>t :TagbarToggle<cr>
-nnoremap <silent> <F3> :TagbarToggle<cr>
+nnoremap <silent> <F4> :TagbarToggle<cr>
+
+" Tlist
+map <F3> :Tlist<cr>
+let Tlist_Show_Menu = 1
+let Tlist_Show_One_File = 1
+let Tlist_Exit_OnlyWindow = 1
+let Tlist_Auto_Open = 0
 
 " incsearch.vim
 map /  <Plug>(incsearch-forward)
